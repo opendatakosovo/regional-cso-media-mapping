@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     handlebars: {
 	    all: {
 	        files: {
-	            "app/templates.js": ["templates/**/*.hbs"]
+	            "app/templates.js": ["app/templates/**/*.hbs"]
 	        }
 	    }
 	},
