@@ -1,0 +1,24 @@
+{
+  "name": "Regional Mapping of CSOs and Media Organizations",
+  "authors": [
+    "georges <georges@opendatakosovo.org>"
+  ],
+  "description": "Displaying regional CSOs and Media on a map.",
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "CC-BY-1.0",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.0",
+    "bootstrap": "~3.3.6",
+    "handlebars": "~4.0.5",
+    "backbone": "~1.2.3"
+  }
+}

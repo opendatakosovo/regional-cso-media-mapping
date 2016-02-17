@@ -5,19 +5,37 @@ module.exports = function(grunt) {
     handlebars: {
 	    all: {
 	        files: {
-	            "js/templates.js": ["templates/**/*.hbs"]
+	            "app/templates.js": ["templates/**/*.hbs"]
 	        }
 	    }
 	},
 	bower: {
-      dev: {
-        dest: 'libs'
-      }
+        dev: {
+            base: 'bower_components', 
+            dest: 'app/assets/libs',
+            options: {
+                checkExistence: true,
+                debugging: true,
+                paths: {
+                    bowerDirectory: 'bower_components',
+                    bowerrc: '.bowerrc',
+                    bowerJson: 'bower.json'
+                }
+            }
+        },
+        /* flat folder/file structure */
+        /*
+        flat: { 
+            dest: 'app/assets/libs',
+            options: {
+                debugging: true
+            }
+        }*/
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-handlebars');
-  grunt.loadNpmTasks('grunt-bower');
+  grunt.loadNpmTasks('main-bower-files');
   
   grunt.registerTask('init', ['bower', 'handlebars']);
   grunt.registerTask('default', ['handlebars']);
