@@ -20,6 +20,15 @@ module.exports = function(grunt) {
                     bowerDirectory: 'bower_components',
                     bowerrc: '.bowerrc',
                     bowerJson: 'bower.json'
+                },
+                overrides: {
+                    bootstrap: {
+                        main: [
+                            './dist/js/bootstrap.min.js',
+                            './dist/css/bootstrap.min.css',
+                            './dist/fonts/*.*'
+                        ]
+                    }
                 }
             }
         },
