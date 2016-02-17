@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     handlebars: {
 	    all: {
 	        files: {
-	            "app/templates.js": ["app/templates/**/*.hbs"]
+	            "app/templates/templates.js": ["app/templates/**/*.hbs"]
 	        }
 	    }
 	},
@@ -41,7 +41,10 @@ module.exports = function(grunt) {
             }
         }*/
     },
-    clean: ["app/models/models.js", "app/views/views.js"],
+    clean: {
+        start: ["app/models/models.min.js", "app/views/views.min.js", "app/templates/templates.min.js"],
+        end: ["app/models/models.js", "app/views/views.js", "app/templates/templates.js"]
+    },
     concat: {
         options: {
             separator: '\n',
@@ -59,13 +62,19 @@ module.exports = function(grunt) {
         target: {
             files:[{
                     expand: true,
+                    src: 'app/templates/templates.js',
+                    dest: '.',
+                    ext: '.min.js'
+                },
+                {
+                    expand: true,
                     src: 'app/models/models.js',
-                    dest: 'app',
+                    dest: '.',
                     ext: '.min.js'
                 },{
                     expand: true,
                     src: 'app/views/views.js',
-                    dest: 'app',
+                    dest: '.',
                     ext: '.min.js'
                 }
             ]
@@ -79,7 +88,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-clean');
   
-  grunt.registerTask('init', ['bower', 'handlebars', 'concat', 'uglify']);
-  grunt.registerTask('default', ['clean', 'handlebars', 'concat', 'uglify']);
+  grunt.registerTask('init', ['clean:start', 'bower', 'handlebars', 'concat', 'uglify', 'clean:end']);
+  grunt.registerTask('default', ['clean:start','handlebars', 'concat', 'uglify', 'clean:end']);
 
 };

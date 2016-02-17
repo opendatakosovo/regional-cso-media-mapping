@@ -1,5 +1,5 @@
 var MapView = Backbone.View.extend({
-	template: JST["templates/map.hbs"],
+	template: JST["app/templates/map.hbs"],
   	initialize: function(){
       this.render();
     },
