@@ -18,7 +18,7 @@ module.exports = function(grunt) {
                 debugging: true,
                 paths: {
                     bowerDirectory: 'bower_components',
-                    bowerrc: '.bowerrc',
+                     bowerrc: '.bowerrc',
                     bowerJson: 'bower.json'
                 },
                 overrides: {
@@ -40,13 +40,46 @@ module.exports = function(grunt) {
                 debugging: true
             }
         }*/
+    },
+    clean: ["app/models/models.js", "app/views/views.js"],
+    concat: {
+        options: {
+            separator: '\n',
+        },
+        models: {
+            src: ['app/models/**/*.js'],
+            dest: 'app/models/models.js'
+        },
+        views: {
+            src: ['app/views/**/*.js'],
+            dest: 'app/views/views.js'
+        },
+    },
+    uglify: {
+        target: {
+            files:[{
+                    expand: true,
+                    src: 'app/models/models.js',
+                    dest: 'app',
+                    ext: '.min.js'
+                },{
+                    expand: true,
+                    src: 'app/views/views.js',
+                    dest: 'app',
+                    ext: '.min.js'
+                }
+            ]
+        }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-handlebars');
   grunt.loadNpmTasks('main-bower-files');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   
-  grunt.registerTask('init', ['bower', 'handlebars']);
-  grunt.registerTask('default', ['handlebars']);
+  grunt.registerTask('init', ['bower', 'handlebars', 'concat', 'uglify']);
+  grunt.registerTask('default', ['clean', 'handlebars', 'concat', 'uglify']);
 
 };
