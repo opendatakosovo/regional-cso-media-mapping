@@ -24,7 +24,7 @@ Just run "grunt" to update it.
 ## Updating Template and Javascript Files
 Any changes inside the 'app' folders will require the default "grunt" command to be executed.
 
-## Technology
+## The Stack
 - [Backbone](http://backbonejs.org/)
 - [Handlerbars](http://handlebarsjs.com/)
 - [Bower](http://bower.io/)
