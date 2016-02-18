@@ -90,5 +90,5 @@ module.exports = function(grunt) {
   
   grunt.registerTask('init', ['clean:start', 'bower', 'handlebars', 'concat', 'uglify', 'clean:end']);
   grunt.registerTask('default', ['clean:start','handlebars', 'concat', 'uglify', 'clean:end']);
-
+  grunt.registerTask('debug', ['clean','handlebars', 'concat', 'uglify']);
 };

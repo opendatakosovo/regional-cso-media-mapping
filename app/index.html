@@ -8,45 +8,24 @@
 		<script type='text/javascript' src="app/assets/libs/underscore/underscore.js"></script>
 		<script type='text/javascript' src="app/assets/libs/backbone/backbone.js"></script>
 		<script type='text/javascript' src="app/assets/libs/handlebars/handlebars.js"></script>
-		<script type='text/javascript' src="app/assets/libs/jquery-sheetrock/src/sheetrock.js"></script>
-		<script type='text/javascript' src="app/assets/libs/leaflet/dist/leaflet-src.js"></script>
-		<script type='text/javascript' src="app/assets/libs/leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
 
 		<!-- Third party CSS assets -->
 		<link rel="stylesheet" href="app/assets/libs/bootstrap/dist/css/bootstrap.min.css">
-		<link rel="stylesheet" href="app/assets/libs/leaflet/dist/leaflet.css">
-		<link rel="stylesheet" href="app/assets/libs/leaflet.markercluster/dist/MarkerCluster.Default.css">
-		<link rel="stylesheet" href="app/assets/libs/leaflet.markercluster/dist/MarkerCluster.css">
-
 
 		<!-- Application JS -->
 		<script type='text/javascript' src='app/templates/templates.min.js'></script>
 		<script type='text/javascript' src='app/models/models.min.js'></script>
 		<script type='text/javascript' src='app/views/views.min.js'></script>
 
-		<style>
-			.navbar{
-				margin-bottom: 0px;
-			}
-		</style>
+		<script>
+			$(function() {
+				var mapView = new MapView({ el: $("#container") });
+			});
+		</script>
 		
 	</head>
 	<body>
-		<nav class="navbar navbar-default">
-		  <div class="container-fluid">
-		    <div class="navbar-header">
-		      <a class="navbar-brand" href="#">
-		        <img alt="ActionSEE" src="app/assets/img/actionsee-logo.png">
-		      </a>
-		    </div>
-		  </div>
-		</nav>
-
 		<div id="container">
 		</div>
-
-		<script>
-			var mapView = new MapView({ el: $("#container") });
-		</script>
 	</body>
 </html>

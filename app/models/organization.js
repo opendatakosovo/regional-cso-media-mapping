@@ -1,11 +1,12 @@
 var Organization = Backbone.Model.extend({
     defaults: {
-	name: "",
-	type: "",
-	website: "",
-	description: "",
-	lat: 0.0,
-	lon: 0.0
+		name: "",
+		type: "",
+		website: "",
+		description: "",
+		latitude: "",
+		longitude: "",
+		logoURL: ""
     },
     initialize: function(){}
 });
