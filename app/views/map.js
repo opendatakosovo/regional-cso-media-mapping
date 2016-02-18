@@ -44,6 +44,7 @@ var MapView = Backbone.View.extend({
           var org = new Organization();
           org.set({
             name: response.rows[i].cells['Name'],
+            type: response.rows[i].cells['Type'],
             description: response.rows[i].cells['Description'],
             website: response.rows[i].cells['Website'],
             latitude: response.rows[i].cells['Latitude'],
@@ -54,6 +55,32 @@ var MapView = Backbone.View.extend({
           // Create marker
           if(org.get("latitude") != "" && org.get("longitude") != ""){
             var marker = L.marker([org.get("latitude"), org.get("longitude")]);
+
+            // Set marker icon based on organization type.
+            var awesomeMarkerIcon = '';
+            var awesomeMarkerColor = '';
+
+            if(org.get("type") === "CSO"){
+              awesomeMarkerIcon = 'ion-ios-people';
+              awesomeMarkerColor = 'green';
+
+            }else if (org.get("type") === "Media"){
+              awesomeMarkerIcon = 'ion-ios-paper';
+              awesomeMarkerColor = 'blue';
+
+            }else{
+              awesomeMarkerIcon = 'ion-ios-help';
+              awesomeMarkerColor = 'red';
+            }
+
+            var awesomeMarker = L.AwesomeMarkers.icon({
+              icon: 'ion ' + awesomeMarkerIcon,
+              markerColor: awesomeMarkerColor
+            });
+
+            var marker = L.marker(
+                [org.get("latitude"), org.get("longitude")],
+                {icon: awesomeMarker})
 
             // Create popup HTML and bind it to the marker.
             var markerPopupHtml = 

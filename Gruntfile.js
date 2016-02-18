@@ -28,6 +28,13 @@ module.exports = function(grunt) {
                             './dist/css/bootstrap.min.css',
                             './dist/fonts/*.*'
                         ]
+                    },
+                    'drmonty-leaflet-awesome-markers': {
+                        main: [
+                            './js/leaflet.awesome-markers.min.js',
+                            './css/leaflet.awesome-markers.css',
+                            './css/images/*.*'
+                        ]
                     }
                 }
             }
