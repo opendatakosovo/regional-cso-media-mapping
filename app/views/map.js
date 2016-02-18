@@ -12,13 +12,14 @@ var MapView = Backbone.View.extend({
       $('#alert-map-error').hide();
 
       //  Initialize map.
-      MapView.map = L.map(this.$('#map')[0]).setView([42.5269444444, 21.0072222222], 7);
+      MapView.map = L.map(this.$('#map')[0]).setView([42.5269444444, 21.0072222222], 6);
       
       // Disable map scrolling.
       MapView.map.scrollWheelZoom.disable();
 
       // Load map layer and add it to the map.
-      L.tileLayer('http://{s}.tiles.mapbox.com/v3/georges.jjc3k7b1/{z}/{x}/{y}.png', {
+      // Previw a bunch of tile theme options here: https://leaflet-extras.github.io/leaflet-providers/preview/
+      L.tileLayer('http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png', {
         attribution: 'Data Source: <a href="http://opendatakosovo.org">Open Data Kosovo</a>',
         maxZoom: 25
       }).addTo(MapView.map);
