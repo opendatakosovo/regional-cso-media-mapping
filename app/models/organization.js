@@ -3,6 +3,8 @@ var Organization = Backbone.Model.extend({
 		name: "",
 		type: "",
 		website: "",
+		twitter: "",
+		facebook: "",
 		description: "",
 		latitude: "",
 		longitude: "",

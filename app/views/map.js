@@ -48,6 +48,8 @@ var MapView = Backbone.View.extend({
             type: response.rows[i].cells['Type'],
             description: response.rows[i].cells['Description'],
             website: response.rows[i].cells['Website'],
+            twitter: response.rows[i].cells['Twitter'],
+            facebook: response.rows[i].cells['Facebook'],
             latitude: response.rows[i].cells['Latitude'],
             longitude: response.rows[i].cells['Longitude'],
             logoURL: response.rows[i].cells['LogoURL']
@@ -88,7 +90,10 @@ var MapView = Backbone.View.extend({
               '<strong>' + 
                 '<a href=' + org.get("website") + ' target="_blank">' + org.get("name") + '</a>' + 
               '</strong>' +
-              '<br><br>' + 
+              '<br>' +
+              '<a href="' + org.get("twitter") + '" target="_blank" class="btn btn-social-icon btn-twitter"><span class="fa fa-twitter"></span></a>' + 
+              '<a href="' + org.get("facebook") + '" target="_blank" class="btn btn-social-icon btn-facebook"><span class="fa fa-facebook"></span></a>' +
+              '<br><br>' +
               '<div>' + org.get("description") + '<div>';
 
             // If we have a logo, include it.

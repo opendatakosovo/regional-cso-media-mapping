@@ -35,6 +35,12 @@ module.exports = function(grunt) {
                             './css/leaflet.awesome-markers.css',
                             './css/images/*.*'
                         ]
+                    },
+                    fontawesome: {
+                        main: [
+                            './css/font-awesome.min.css',
+                            './fonts/*.*'
+                        ]
                     }
                 }
             }
