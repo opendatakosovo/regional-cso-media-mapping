@@ -22,6 +22,11 @@ module.exports = function(grunt) {
                     bowerJson: 'bower.json'
                 },
                 overrides: {
+                    backbone: {
+                        main: [
+                            './backbone-min.js'
+                        ]
+                    },
                     bootstrap: {
                         main: [
                             './dist/js/bootstrap.min.js',
