@@ -79,6 +79,10 @@ var MapView = Backbone.View.extend({
               awesomeMarkerIcon = 'ion-android-walk';
               awesomeMarkerColor = 'yellow';
 
+            }else if (org.get("type") === "Network"){
+              awesomeMarkerIcon = 'ion-android-share-alt';
+              awesomeMarkerColor = 'orange';
+              
             }else{
               awesomeMarkerIcon = 'ion-ios-help';
               awesomeMarkerColor = 'red';
